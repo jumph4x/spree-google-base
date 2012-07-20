@@ -7,7 +7,7 @@ module SpreeGoogleBase
     attr_reader :store, :domain, :scope, :title, :output
     
     def self.generate_and_transfer
-      builders = if respond_to? Spree::Store
+      builders = if defined?(Spree::Store)
         Spree::Store.map do |store|
           self.new(store)
         end
