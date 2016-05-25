@@ -83,7 +83,7 @@ module SpreeGoogleBase
           ar_scope.find_each() do |product|
             variants = Spree::Variant.find_each()
             variants.each do |item|
-              if (item.product_id == product.id && !item.gtin.nil?) && (product.hide_from_emails != true)
+              if (item.product_id == product.id && !item.gtin.nil?) && (product.hide_for_customer != true)
                 build_product(xml, product, item)
               end
             end
