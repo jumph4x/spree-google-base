@@ -33,7 +33,7 @@ module SpreeGoogleBase
       @title = "Glossier Product Feed"
 
       #@domain = Spree::Config[:site_url]
-      @domain = "https://www.glossier.com/#!"
+      @domain = "https://www.glossier.com"
     end
 
     def ar_scope
@@ -82,9 +82,9 @@ module SpreeGoogleBase
 
           ar_scope.find_each() do |product|
             variants = Spree::Variant.find_each()
-            variants.each do |item|
-              if (item.product_id == product.id && !item.gtin.nil?) && (product.hide_for_customer != true)
-                build_product(xml, product, item)
+            variants.each do |variant|
+              if (variant.product_id == product.id && !variant.gtin.nil?) && (product.hide_for_customer == false && variant.hidden == false)
+                build_product(xml, product, variant)
               end
             end
           end
