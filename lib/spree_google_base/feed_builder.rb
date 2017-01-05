@@ -127,7 +127,7 @@ module SpreeGoogleBase
       end
 
       return unless main_image
-      xml.tag!('g:image_link', main_image.attachment.url)
+      xml.tag!('g:image_link', main_image)
 
       if Spree::GoogleBase::Config[:enable_additional_images]
         more_images.each do |image|
