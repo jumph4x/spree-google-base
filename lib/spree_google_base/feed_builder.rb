@@ -123,7 +123,8 @@ module SpreeGoogleBase
       if Spree::GoogleBase::Config[:enable_additional_images]
         main_image, *more_images = product.master.images
       else
-        main_image = product.display_images[:list].first[:portrait_normal_url] || ''
+        product_images = product.display_images[:list]
+        main_image = product_images.first[:portrait_normal_url] if product_images
       end
 
       return unless main_image
