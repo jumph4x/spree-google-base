@@ -52,7 +52,7 @@ module Spree
     end
 
     def google_base_item_group_id
-      product.sku
+      product_id
     end
 
     private
