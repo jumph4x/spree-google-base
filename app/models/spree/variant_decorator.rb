@@ -51,6 +51,10 @@ module Spree
       product.product_type
     end
 
+    def google_base_item_group_id
+      product.slug
+    end
+
     private
     def warehouse_count_on_hand
       warehouse_id = stock_locations.find_by(name: "Warehouse").id

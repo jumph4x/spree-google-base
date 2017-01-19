@@ -18,7 +18,8 @@ module SpreeGoogleBase
         ['g:weight', 'google_base_weight'],
         ['g:condition', 'google_base_condition'],
         ['g:availability', 'google_base_availability'],
-        ['g:google_product_category', 'google_base_product_category']
+        ['g:google_product_category', 'google_base_product_category'],
+        ['g:item_group_id', 'google_base_item_group_id']
       ]
     end
 
