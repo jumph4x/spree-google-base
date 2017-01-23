@@ -55,8 +55,8 @@ module Spree
       product.slug
     end
 
-    def google_base_item_color
-      self.option_values.first.name
+    def google_base_item_color 
+      self.option_values.first.name if self.option_values
     end
 
     private
