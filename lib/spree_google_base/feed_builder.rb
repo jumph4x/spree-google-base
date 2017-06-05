@@ -11,6 +11,12 @@ module SpreeGoogleBase
         builder.generate_and_transfer_store
       end
     end
+    
+    def self.generate
+      self.builders.each do |builder|
+        builder.generate
+      end
+    end
 
     def self.generate_test_file(filename)
       exporter = new
@@ -48,6 +54,14 @@ module SpreeGoogleBase
 
       transfer_xml
       cleanup_xml
+    end
+    
+    def generate
+      delete_xml_if_exists
+
+      File.open(path, 'w') do |file| 
+        generate_xml file
+      end
     end
 
     def path
